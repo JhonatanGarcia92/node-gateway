@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$NODE_ENV" = "production" ] ; then
+  node app.js
+else
+  if ! which nodemon >/dev/null ; then
+    npm install -g nodemon
+  fi
+
+  nodemon app.js --legacy-watch
+fi
